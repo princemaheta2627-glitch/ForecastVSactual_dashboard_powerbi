@@ -1,208 +1,292 @@
-# 🛒 E-Commerce Purchase Exploratory Data Analysis (EDA)
+# 💰 Forecast vs Actual Financial Dashboard | Power BI FP&A Project
 
-## 📌 Project Overview
-
-This project performs **Exploratory Data Analysis (EDA)** on an E-Commerce Purchase dataset containing **10,000 customer transactions**. The objective is to analyze customer demographics, purchasing behavior, payment methods, and transaction trends using Python.
-
-The project demonstrates essential **Data Analysis** skills including data cleaning, statistical analysis, visualization, and business insight generation.
-
----
-
-## 🎯 Objectives
-
-* Understand the dataset structure and quality
-* Analyze purchase price distribution
-* Explore customer demographics
-* Study purchasing behavior (AM vs PM)
-* Analyze payment methods
-* Extract meaningful business insights
-* Practice real-world data analysis using Python
+![Power BI](https://img.shields.io/badge/Power%20BI-Business%20Intelligence-F2C811?logo=powerbi&logoColor=black)
+![DAX](https://img.shields.io/badge/DAX-Financial%20Analytics-blue)
+![Power Query](https://img.shields.io/badge/Power%20Query-Data%20Transformation-green)
+![Excel](https://img.shields.io/badge/Dataset-Excel-success)
+![License](https://img.shields.io/badge/License-MIT-brightgreen)
 
 ---
 
-## 📊 Dataset Information
+# 📌 Project Overview
 
-* **Dataset:** Ecommerce Purchases Dataset
-* **Rows:** 10,000
-* **Columns:** 14
-* **Missing Values:** None
-* **Source:** Kaggle
+The **Forecast vs Actual Financial Dashboard** is an interactive **Power BI** solution designed for **Financial Planning & Analysis (FP&A)**. It compares planned IT budgets (Forecast) with actual spending, enabling finance teams to monitor budget performance, identify variances, and make informed business decisions.
+
+The dashboard analyzes **11,027 financial records** across **38 IT departments**, **25 cost elements**, **18 countries**, and **12 months (2020)** using Power BI, DAX, and Power Query.
 
 ---
 
-## 🛠️ Technologies Used
+# 🎯 Project Objectives
 
-* Python
-* Pandas
-* NumPy
-* Matplotlib
-* Seaborn
-* Jupyter Notebook
+- Compare Forecast vs Actual spending
+- Track budget variance ($ and %)
+- Monitor departmental performance
+- Analyze country-wise IT budgets
+- Identify major cost drivers
+- Enable interactive filtering and drill-down
+- Build an executive-level FP&A dashboard
 
 ---
 
-## 📂 Project Structure
+# 📊 Dataset Information
+
+| Feature | Details |
+|----------|----------|
+| Dataset | Forecast.csv + Actual Dataset |
+| Total Records | 11,027 |
+| Departments | 38 |
+| Cost Elements | 25 |
+| Countries | 18 |
+| Time Period | January 2020 – December 2020 |
+| Tool | Microsoft Power BI |
+
+---
+
+# 📈 Financial Snapshot
+
+| KPI | Value |
+|------|-------|
+| Total Forecast | **$261,051,603** |
+| Positive Forecast | **$277,532,873** |
+| Negative Forecast | **-$16,481,270** |
+| Countries | **18** |
+| IT Departments | **38** |
+| Cost Elements | **25** |
+| Peak Forecast Month | **October 2020 ($24.35M)** |
+| Lowest Forecast Month | **January 2020 ($17.59M)** |
+
+---
+
+# 🛠️ Tools & Technologies
+
+- Microsoft Power BI
+- Power Query
+- DAX
+- Microsoft Excel
+- Data Modeling
+- Business Intelligence
+- Financial Planning & Analysis (FP&A)
+
+---
+
+# 📂 Repository Structure
 
 ```text
-Ecommerce-Purchase-EDA/
+Forecast-Vs-Actual-Dashboard/
 │
-├── Ecommerce Purchases.csv
-├── Ecommerce_EDA.ipynb
-├── images/
-│   ├── purchase_distribution.png
-│   ├── top_jobs.png
-│   └── am_pm_boxplot.png
+├── Forecast.csv
+├── Actual.csv
+├── ForecastVsActualDashboard.pbix
+├── ForecastVsActual_Dashboard_Report.pdf
 ├── README.md
-└── requirements.txt
+│
+├── images/
+│   ├── dashboard.png
+│   ├── kpi_cards.png
+│   ├── variance_chart.png
+│   ├── waterfall.png
+│   ├── treemap.png
+│   └── dashboard_preview.png
 ```
 
 ---
 
-## 📈 Exploratory Data Analysis
+# 📊 Dashboard Features
 
-The project includes:
+### KPI Cards
 
-* Dataset inspection
-* Data type analysis
-* Missing value analysis
-* Descriptive statistics
-* Purchase price distribution
-* Job title analysis
-* Language analysis
-* Email provider analysis
-* Credit card provider analysis
-* AM vs PM purchase comparison
-* Customer lookup using IP Address
-* Credit card expiry analysis
+- Total Forecast
+- Total Actual
+- Variance ($)
+- Variance (%)
 
----
+### Interactive Visualizations
 
-## 📊 Visualizations
+- Forecast vs Actual Monthly Trend
+- Variance Waterfall Chart
+- Department Treemap
+- Country Donut Chart
+- Cost Element Bar Chart
+- Matrix Table with Conditional Formatting
 
-The notebook contains multiple visualizations including:
+### Interactive Filters
 
-* 📉 Purchase Price Distribution
-* 📊 Top Job Categories
-* 📦 AM vs PM Purchase Comparison
-* 📈 Customer Demographics
-* 📌 Email Provider Distribution
+- Department
+- Country
+- Cost Element
+- Month
 
 ---
 
-## 🔍 Key Insights
+# 📊 DAX Measures
 
-* Average Purchase Price: **$50.35**
-* Purchase values range from **$0.95 to $99.99**
-* Engineers are among the largest customer groups.
-* French-speaking customers represent approximately **11%** of the dataset.
-* Purchase amounts are similar during both **AM** and **PM**.
-* Hotmail, Yahoo, and Gmail are the most common email providers.
-* High-value Mastercard users can be identified for targeted marketing.
+### Total Forecast
+
+```DAX
+Total Forecast =
+SUM(Forecast[Forecast])
+```
+
+### Total Actual
+
+```DAX
+Total Actual =
+SUM(Actual[Actual])
+```
+
+### Variance
+
+```DAX
+Variance =
+[Total Forecast] - [Total Actual]
+```
+
+### Variance %
+
+```DAX
+Variance % =
+DIVIDE([Variance], ABS([Total Forecast]),0)
+```
+
+### YTD Forecast
+
+```DAX
+YTD Forecast =
+TOTALYTD([Total Forecast],'Date'[Date])
+```
 
 ---
 
-## 💼 Skills Demonstrated
+# 🔍 Key Business Insights
 
-* Exploratory Data Analysis (EDA)
-* Data Cleaning
-* Data Visualization
-* Statistical Analysis
-* Business Intelligence
-* Pandas Operations
-* Feature Engineering
-* Customer Segmentation
-* Analytical Thinking
+- Total IT Forecast Budget reached **$261M**.
+- **USA accounts for 83.4%** of the total IT budget.
+- **External Labor** is the largest expense category, contributing **31%** of the budget.
+- Combined **External + Internal Labor** represents **54.6%** of total spending.
+- **R2 Department** has the highest forecast budget (**$49.36M**).
+- Spending peaks in **October**, while **January** records the lowest forecast.
+- Around **7.6%** of forecast records contain negative values representing credits or offsets.
 
 ---
 
-## 🚀 Future Improvements
+# 📊 Dashboard Architecture
 
-* Customer Segmentation using K-Means
-* Purchase Prediction using Machine Learning
-* Fraud Detection
-* Interactive Dashboard using Streamlit
-* Plotly Visualizations
-* Business KPI Dashboard
+The dashboard follows a **dual-table financial model**:
+
+```
+Forecast Table
+        │
+        │
+        ▼
+     Date Table
+        ▲
+        │
+        │
+Actual Table
+```
+
+This structure enables dynamic Forecast vs Actual comparisons with time intelligence.
 
 ---
 
-## 📸 Sample Output
+# 🧹 Power Query Transformations
 
-Include screenshots of your notebook charts here.
+- Date conversion
+- Numeric cleaning
+- Column renaming
+- Whitespace removal
+- Negative value validation
+- Forecast & Actual table merge
+- Data type conversion
 
-Example:
+---
+
+# 📈 Skills Demonstrated
+
+- Financial Data Modeling
+- Power BI Dashboard Development
+- DAX Calculations
+- Time Intelligence
+- Power Query ETL
+- Variance Analysis
+- KPI Design
+- Interactive Reporting
+- Data Visualization
+- FP&A Reporting
+
+---
+
+# 💼 Business Value
+
+This dashboard helps organizations:
+
+- Monitor budget performance
+- Detect overspending early
+- Improve financial planning
+- Compare Forecast vs Actual
+- Support executive decision-making
+- Analyze departmental spending
+- Improve financial transparency
+
+---
+
+# 🚀 Future Enhancements
+
+- Rolling Forecast
+- Variance Drill-through Pages
+- Budget Alert System
+- Multi-Year Trend Analysis
+- CAPEX vs OPEX Tracking
+- Headcount Integration
+- Currency Conversion
+- Machine Learning Forecasting
+
+---
+
+# 📸 Dashboard Preview
+
+Store dashboard screenshots inside the `images` folder.
 
 ```text
 images/
-├── purchase_distribution.png
-├── top_jobs.png
-└── am_pm_boxplot.png
+├── dashboard.png
+├── kpi_cards.png
+├── variance_chart.png
+├── waterfall.png
+├── treemap.png
+└── dashboard_preview.png
 ```
 
 ---
 
-## ▶️ How to Run
+# ▶️ Getting Started
 
-### 1. Clone Repository
-
-```bash
-git clone https://github.com/your-username/ecommerce-purchase-eda.git
-```
-
-### 2. Install Dependencies
+Clone the repository:
 
 ```bash
-pip install -r requirements.txt
+git clone https://github.com/your-username/ForecastVSactual_dashboard_powerbi.git
 ```
 
-### 3. Launch Jupyter Notebook
-
-```bash
-jupyter notebook
-```
-
-Open:
-
-```text
-Ecommerce_EDA.ipynb
-```
+Open the `.pbix` file using **Microsoft Power BI Desktop**.
 
 ---
 
-## 📦 Requirements
-
-```text
-pandas
-numpy
-matplotlib
-seaborn
-jupyter
-```
-
-Install them using:
-
-```bash
-pip install pandas numpy matplotlib seaborn jupyter
-```
-
----
-
-## 👨‍💻 Author
+# 👨‍💻 Author
 
 **Prince Maheta**
 
-Aspiring Data Scientist | Data Analyst
+📊 Aspiring Data Analyst | Business Intelligence Developer
 
-GitHub: https://github.com/princemaheta2627-glitch
-
----
-
-## ⭐ If you found this project useful
-
-Give this repository a ⭐ on GitHub and feel free to fork it for learning purposes.
+🔗 GitHub: https://github.com/princemaheta2627-glitch
 
 ---
 
-## 📜 License
+# ⭐ Support
 
-This project is intended for educational and portfolio purposes.
+If you found this project useful, please consider giving it a ⭐ on GitHub.
+
+---
+
+# 📜 License
+
+This project is intended for educational, learning, and portfolio purposes.
